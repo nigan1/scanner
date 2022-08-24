@@ -1,3 +1,4 @@
+#pip install python-binance
 from binance.client import Client
 import pandas as pd
 
@@ -13,7 +14,7 @@ monedas=[]
 
 
 futures_exchange_info = client.futures_ticker()
-
+#se le insertan los parametros a buscar, con USDT, volumen  y precio de la misma
 for element in futures_exchange_info:
     if 'USDT' in element['symbol'] and float(element['quoteVolume'])>200000000.00 and float(element['lastPrice'])<5:
         monedas.append(element)
